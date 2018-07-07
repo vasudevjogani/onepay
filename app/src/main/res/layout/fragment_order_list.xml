@@ -1,0 +1,28 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.hb.invest.invest.fragments.OrderListFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rvOrder"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <com.example.hb.invest.invest.utiles.views.CustomTextView
+            android:id="@+id/tvNoData"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="No order found."
+            android:textColor="@color/app_color"
+            android:textSize="@dimen/text_18"
+            android:visibility="gone"
+            app:font_type="regular" />
+
+    </RelativeLayout>
+
+</layout>

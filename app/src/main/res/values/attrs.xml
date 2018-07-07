@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="CustomTextView">
+        <attr name="font_type" />
+    </declare-styleable>
+    <declare-styleable name="CustomEditText">
+        <attr name="font_type" />
+    </declare-styleable>
+
+    <attr name="font_type">
+        <enum name="light" value="1" />
+        <enum name="medium" value="2" />
+        <enum name="regular" value="3" />
+    </attr>
+
+</resources>

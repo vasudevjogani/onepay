@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/padding_5"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cardview"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/box_height"
+            android:layout_gravity="center_horizontal"
+            app:cardBackgroundColor="@color/app_color"
+            android:clickable="true"
+            app:cardCornerRadius="15dip"
+            app:cardPreventCornerOverlap="false"
+            app:cardUseCompatPadding="true">
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/ivImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_margin="@dimen/padding_8"
+                android:layout_gravity="center"
+                android:src="@drawable/mobile" />
+
+        </android.support.v7.widget.CardView>
+
+        <com.example.hb.invest.invest.utiles.views.CustomTextView
+            android:id="@+id/tvName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/padding_5"
+            android:text="Name"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/text_15"
+            app:font_type="regular" />
+
+    </LinearLayout>
+</layout>

@@ -1,0 +1,84 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/app_color"
+        android:orientation="vertical">
+
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary" />
+        </android.support.design.widget.AppBarLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/black_trans"
+            android:orientation="vertical">
+
+            <com.example.hb.invest.invest.utiles.views.CustomTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="Address"
+                android:layout_marginTop="@dimen/padding_20"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/text_22"
+                android:textStyle="bold"
+                app:font_type="medium" />
+
+            <com.example.hb.invest.invest.utiles.views.CustomTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_10"
+                android:text="ipsum road, 5th cross,
+City, State,
+689861300
+Country"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_18"
+                app:font_type="regular"
+                android:gravity="center_horizontal"/>
+
+            <com.example.hb.invest.invest.utiles.views.CustomTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="@dimen/padding_6"
+                android:text="Ph: +899 54565 324, +568 66 548 9321"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_18"
+                app:font_type="regular"/>
+
+            <com.example.hb.invest.invest.utiles.views.CustomTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="Email"
+                android:layout_marginTop="@dimen/padding_20"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/text_22"
+                android:textStyle="bold"
+                app:font_type="medium" />
+
+            <com.example.hb.invest.invest.utiles.views.CustomTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="@dimen/padding_6"
+                android:text="onlinerecharge@example.com"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_18"
+                app:font_type="regular"/>
+
+        </LinearLayout>
+    </LinearLayout>
+</layout>

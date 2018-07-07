@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/app_color"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/black_trans"
+            android:gravity="center_horizontal"
+            android:paddingTop="@dimen/padding_20"
+            android:orientation="horizontal">
+
+            <com.example.hb.invest.invest.utiles.views.CustomTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Call to : "
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_16"
+                android:textStyle="bold"
+                app:font_type="medium" />
+
+            <com.example.hb.invest.invest.utiles.views.CustomTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+260-211269483"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_15"
+                app:font_type="regular" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/black_trans"
+            android:gravity="center_horizontal"
+            android:paddingTop="@dimen/padding_10"
+            android:paddingBottom="@dimen/padding_10"
+            android:orientation="horizontal">
+
+            <com.example.hb.invest.invest.utiles.views.CustomTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mail to : "
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_16"
+                android:textStyle="bold"
+                app:font_type="medium" />
+
+            <com.example.hb.invest.invest.utiles.views.CustomTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="support@onepay.co.zm"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_15"
+                app:font_type="regular" />
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/black_trans"
+            android:paddingTop="@dimen/padding_20">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/padding_40"
+                android:layout_marginRight="@dimen/padding_40"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/input_box_s1">
+
+                    <Spinner
+                        android:id="@+id/spinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/padding_20"
+                        android:layout_marginRight="@dimen/padding_6"
+                        android:gravity="center"
+                        android:textSize="@dimen/text_16" />
+
+                </LinearLayout>
+
+
+                <com.example.hb.invest.invest.utiles.views.CustomEditText
+                    android:id="@+id/etName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/padding_15"
+                    android:background="@drawable/input_box_s1"
+                    android:gravity="center"
+                    android:hint="Enter your Name"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:paddingLeft="@dimen/padding_20"
+                    android:paddingRight="@dimen/padding_20"
+                    android:singleLine="true"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_16"
+                    app:font_type="regular" />
+
+                <com.example.hb.invest.invest.utiles.views.CustomEditText
+                    android:id="@+id/etEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/padding_15"
+                    android:background="@drawable/input_box_s1"
+                    android:gravity="center"
+                    android:hint="Enter your Email ID"
+                    android:imeOptions="actionNext"
+                    android:inputType="textEmailAddress"
+                    android:paddingLeft="@dimen/padding_20"
+                    android:paddingRight="@dimen/padding_20"
+                    android:singleLine="true"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_16"
+                    app:font_type="regular" />
+
+                <com.example.hb.invest.invest.utiles.views.CustomEditText
+                    android:id="@+id/etNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/padding_15"
+                    android:background="@drawable/input_box_s1"
+                    android:gravity="center"
+                    android:hint="Enter Mobile Number"
+                    android:imeOptions="actionNext"
+                    android:inputType="number"
+                    android:paddingLeft="@dimen/padding_20"
+                    android:paddingRight="@dimen/padding_20"
+                    android:singleLine="true"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_16"
+                    app:font_type="regular" />
+
+                <com.example.hb.invest.invest.utiles.views.CustomEditText
+                    android:id="@+id/etDetail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/padding_15"
+                    android:background="@drawable/input_box_s1"
+                    android:gravity="top|center"
+                    android:hint="Please enter here.."
+                    android:imeOptions="actionDone"
+                    android:lines="5"
+                    android:padding="@dimen/padding_10"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_16"
+                    app:font_type="regular" />
+
+                <com.example.hb.invest.invest.utiles.views.CustomTextView
+                    android:id="@+id/tvCreateTicket"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/padding_30"
+                    android:background="@drawable/rounded_yellow_btn_selector"
+                    android:gravity="center"
+                    android:padding="@dimen/padding_10"
+                    android:text="CREATE TICKET"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_15"
+                    app:font_type="medium" />
+
+
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+</layout>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/app_color"
+        android:orientation="vertical">
+
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary" />
+        </android.support.design.widget.AppBarLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/black_trans"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/padding_20">
+
+            <com.example.hb.invest.invest.utiles.views.CustomTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:id="@+id/tvTitle"
+                android:text="Account Number"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_20"
+                app:font_type="medium" />
+
+            <com.example.hb.invest.invest.utiles.views.CustomTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="@dimen/padding_50"
+                android:visibility="gone"
+                android:text="Account Number"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_20"
+                app:font_type="medium" />
+
+            <com.example.hb.invest.invest.utiles.views.CustomTextView
+                android:id="@+id/tvAccNo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:layout_margin="@dimen/padding_10"
+                android:gravity="center_horizontal"
+                android:singleLine="true"
+                android:text="123456667"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_20"
+                app:font_type="regular" />
+
+            <com.example.hb.invest.invest.utiles.views.CustomTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_20"
+                android:gravity="center_horizontal"
+                android:text="Reference Number"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_20"
+                app:font_type="medium" />
+
+            <com.example.hb.invest.invest.utiles.views.CustomTextView
+                android:id="@+id/tvOrderId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/padding_10"
+                android:gravity="center_horizontal"
+                android:singleLine="true"
+                android:text="156667"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_20"
+                app:font_type="regular" />
+
+            <com.example.hb.invest.invest.utiles.views.CustomTextView
+                android:id="@+id/tvGoto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/padding_30"
+                android:background="@drawable/rounded_yellow_bg"
+                android:gravity="center"
+                android:paddingBottom="@dimen/padding_12"
+                android:paddingLeft="@dimen/padding_25"
+                android:paddingRight="@dimen/padding_25"
+                android:paddingTop="@dimen/padding_12"
+                android:text="GOTO ORDER"
+                android:textColor="@color/white"
+                app:font_type="medium" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</layout>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.hb.invest">
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".invest.activities.SpalshActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".invest.activities.LandingActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".invest.activities.RegistrationActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".invest.activities.ForgotPinActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".invest.activities.ExchangeRateActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".invest.activities.MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".invest.activities.MobileActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".invest.activities.BundleActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".invest.activities.ElectricityActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".invest.activities.LandLineActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".invest.activities.WaterActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".invest.activities.PayTvActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".invest.activities.DomesticTaxesActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".invest.activities.CouncilBillsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".invest.activities.LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".invest.activities.ContactUsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".invest.activities.CardActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".invest.activities.WebActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".invest.activities.EmailVerifyActivity" />
+        <activity android:name=".invest.activities.ManualPaymentActivity" />
+        <activity android:name=".invest.activities.SucessActivity" />
+        <activity android:name=".invest.activities.BasicInfoActivity" />
+        <activity android:name=".invest.activities.AddWalletBeneficiaryActivity" />
+        <activity android:name=".invest.activities.AddUtilityBeneficiaryActivity" />
+        <activity android:name=".invest.activities.SendMoneyActivity" />
+        <activity android:name=".invest.activities.UtilityBenificiaryListActivity" />
+        <activity android:name=".invest.activities.AddWalletActivity" />
+        <activity android:name=".invest.activities.WalletActivity"></activity>
+    </application>
+
+</manifest>

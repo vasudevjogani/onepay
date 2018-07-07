@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary" />
+        </android.support.design.widget.AppBarLayout>
+
+        <ImageView
+            android:layout_width="@dimen/padding_100"
+            android:layout_height="@dimen/padding_100"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/padding_40"
+            android:src="@drawable/tax_black"
+            android:visibility="visible" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_marginTop="@dimen/padding_40"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="@dimen/padding_40"
+            android:layout_marginRight="@dimen/padding_40"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/input_box_s1c">
+
+                <Spinner
+                    android:id="@+id/spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="@dimen/padding_20"
+                    android:gravity="center"
+                    android:text="Select oprater"
+                    android:textSize="@dimen/text_16" />
+
+            </LinearLayout>
+
+            <com.example.hb.invest.invest.utiles.views.CustomEditText
+                android:id="@+id/etPlotNo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/padding_30"
+                android:background="@drawable/input_box_s1c"
+                android:ellipsize="end"
+                android:hint="Enter Plot Number"
+                android:paddingLeft="@dimen/padding_20"
+                android:textColor="@android:color/black"
+                android:textColorHint="@color/light_gray"
+                android:paddingRight="@dimen/padding_15"
+                android:singleLine="true"
+                android:textSize="@dimen/text_16"
+                app:font_type="regular" />
+
+            <com.example.hb.invest.invest.utiles.views.CustomTextView
+                android:id="@+id/tvViewBill"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/padding_30"
+                android:background="@drawable/rounded_yellow_bg"
+                android:gravity="center"
+                android:paddingBottom="@dimen/padding_12"
+                android:paddingLeft="@dimen/padding_25"
+                android:paddingRight="@dimen/padding_25"
+                android:paddingTop="@dimen/padding_12"
+                android:text="View Bill"
+                android:textColor="@color/white"
+                android:visibility="visible"
+                app:font_type="medium" />
+
+            <LinearLayout
+                android:id="@+id/llView"
+                android:layout_width="match_parent"
+                android:visibility="gone"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.example.hb.invest.invest.utiles.views.CustomTextView
+                    android:id="@+id/tvBill"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/padding_20"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/text_16"
+                    app:font_type="regular" />
+
+                <com.example.hb.invest.invest.utiles.views.CustomEditText
+                    android:id="@+id/etAmount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/padding_30"
+                    android:background="@drawable/input_box_s1c"
+                    android:ellipsize="end"
+                    android:hint="Enter amount"
+                    android:inputType="number"
+                    android:paddingLeft="@dimen/padding_20"
+                    android:paddingRight="@dimen/padding_15"
+                    android:singleLine="true"
+                    android:textColor="@android:color/black"
+                    android:textColorHint="@color/light_gray"
+                    android:textSize="@dimen/text_16"
+                    app:font_type="regular" />
+
+
+                <com.example.hb.invest.invest.utiles.views.CustomTextView
+                    android:id="@+id/tvProceed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/padding_30"
+                    android:background="@drawable/rounded_yellow_bg"
+                    android:gravity="center"
+                    android:paddingBottom="@dimen/padding_12"
+                    android:paddingLeft="@dimen/padding_25"
+                    android:paddingRight="@dimen/padding_25"
+                    android:paddingTop="@dimen/padding_12"
+                    android:text="PROCEED"
+                    android:textColor="@color/white"
+                    app:font_type="medium" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

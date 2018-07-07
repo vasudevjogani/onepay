@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:padding="5dp"
+    android:clickable="true"
+    android:background="@android:color/transparent"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rvMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/white_rounded_bg" />
+
+    <TextView
+        android:id="@+id/txtcancel"
+        style="@style/bottomMenuText1"
+        android:layout_marginTop="15dp"
+        android:textStyle="bold"
+        android:text="@string/cancel" />
+</LinearLayout>

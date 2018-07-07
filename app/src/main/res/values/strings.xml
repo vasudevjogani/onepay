@@ -1,0 +1,75 @@
+<resources>
+    <string name="app_name">Onepay</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="internet_not_available">Internet is not available, please try again later!</string>
+
+    <string-array name="mobile_spinner">
+        <item>Select operator</item>
+        <item>Airtel</item>
+        <item>Vodafone</item>
+        <item>Idea</item>
+        <item>Tata Docomo</item>
+        <item>Reliance</item>
+    </string-array>
+
+    <string-array name="bundle_spinner">
+        <item>Select operator</item>
+        <item>Airtel</item>
+        <item>Vodafone</item>
+        <item>Idea</item>
+        <item>Tata Docomo</item>
+        <item>Reliance</item>
+    </string-array>
+
+    <string-array name="paytv_spinner">
+        <item>Select operator</item>
+        <item>DSTV</item>
+        <item>BoxOffice</item>
+        <item>GoTV</item>
+        <item>Kwese</item>
+        <item>Zuku</item>
+        <item>TopStar</item>
+    </string-array>
+
+    <string-array name="taxes_spinner">
+        <item>Select operator</item>
+        <item>PAYE</item>
+        <item>Witholding Tax on Rent</item>
+        <item>VAT</item>
+        <item>Income Tax</item>
+    </string-array>
+
+    <string-array name="bills_spinner">
+        <item>Select operator</item>
+        <item>Personal Levy</item>
+        <item>Ground Rent</item>
+        <item>NAPSA-Monthly Return Payments</item>
+    </string-array>
+
+    <string-array name="prefix_spinner">
+        <item>Mr.</item>
+        <item>Ms.</item>
+        <item>Mrs.</item>
+    </string-array>
+
+    <string-array name="gender_spinner">
+        <item>Male</item>
+        <item>Female</item>
+        <item>Other</item>
+    </string-array>
+
+    <string-array name="support_spinner">
+        <item>Select Type</item>
+        <item>Payment</item>
+        <item>Recharge</item>
+        <item>Booking</item>
+        <item>Account</item>
+        <item>Others</item>
+    </string-array>
+
+    <string name="press_once_again_to_exit_">Press once again to exit!</string>
+    <string name="more_info"><u>More Info</u></string>
+
+</resources>

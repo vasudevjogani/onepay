@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/app_color"
+        android:orientation="vertical">
+
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary" />
+        </android.support.design.widget.AppBarLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/padding_30"
+            android:background="#99000000"
+            android:orientation="vertical">
+
+            <com.example.hb.invest.invest.utiles.views.CustomTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/text_20"
+                android:text="Email Address"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/text_13"
+                app:font_type="regular" />
+
+            <com.example.hb.invest.invest.utiles.views.CustomEditText
+                android:id="@+id/etEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_5"
+                android:background="@drawable/input_box_s1"
+                android:gravity="center"
+                android:hint="Enter email address"
+                android:imeOptions="actionNext"
+                android:inputType="textEmailAddress"
+                android:paddingLeft="@dimen/padding_20"
+                android:paddingRight="@dimen/padding_20"
+                android:singleLine="true"
+                android:textColorHint="@color/light_gray"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_16"
+                app:font_type="regular" />
+
+            <com.example.hb.invest.invest.utiles.views.CustomTextView
+                android:id="@+id/tvAdd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_30"
+                android:background="@drawable/rounded_yellow_btn_selector"
+                android:gravity="center"
+                android:padding="@dimen/padding_10"
+                android:text="Add Beneficiary"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_15"
+                app:font_type="medium" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</layout>
