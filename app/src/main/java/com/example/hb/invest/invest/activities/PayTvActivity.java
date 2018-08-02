@@ -16,6 +16,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -48,8 +49,8 @@ public class PayTvActivity extends AppCompatActivity implements IParser<WSRespon
     private ArrayList<HomeResponse.Paytv> paytvList = new ArrayList<>();
     private ArrayList<String> operatorList = new ArrayList<>();
     String referenceNumber;
-    private boolean isManual;
     private Dialog dialog;
+    private String paymentType = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -129,8 +130,8 @@ public class PayTvActivity extends AppCompatActivity implements IParser<WSRespon
                 public void onClick(View view) {
                     ArrayList<Menuitem> menuitems = new ArrayList<>();
                     menuitems.add(new Menuitem("Airtel Money", R.drawable.airtel_logo));
-                    menuitems.add(new Menuitem("Mtn Money", R.drawable.mtn_logo));
-                    menuitems.add(new Menuitem("Zambia Kwacha", R.drawable.zamtel_logo));
+                    menuitems.add(new Menuitem("MTN Mobile Money", R.drawable.mtn_logo));
+                    menuitems.add(new Menuitem("Zamtel Kwacha", R.drawable.zamtel_logo));
                     menuitems.add(new Menuitem("Card Payment", R.drawable.mastercard));
 
                     if (binding.spinner.getSelectedItem().equals("Select operator")) {
@@ -143,19 +144,19 @@ public class PayTvActivity extends AppCompatActivity implements IParser<WSRespon
                             public void OnMenuItemClick(int position) {
                                 switch (position) {
                                     case 0:
-                                        isManual = true;
+                                        paymentType = "manual";
                                         requestForPriceTaxWs();
                                         break;
                                     case 1:
-                                        isManual = true;
+                                        paymentType = "mtn_money";
                                         requestForPriceTaxWs();
                                         break;
                                     case 2:
-                                        isManual = true;
+                                        paymentType = "manual";
                                         requestForPriceTaxWs();
                                         break;
                                     case 3:
-                                        isManual = false;
+                                        paymentType = "cards";
                                         requestForPriceTaxWs();
                                         break;
                                 }
@@ -170,6 +171,8 @@ public class PayTvActivity extends AppCompatActivity implements IParser<WSRespon
                 public void onClick(View view) {
                     if (binding.spinner.getSelectedItem().equals("Select operator")) {
                         Toast.makeText(PayTvActivity.this, "Please select operator.", Toast.LENGTH_SHORT).show();
+                    } else if (TextUtils.isEmpty(binding.etNumber.getText().toString())) {
+                        Toast.makeText(PayTvActivity.this, "Please enter mobile number.", Toast.LENGTH_SHORT).show();
                     } else if (TextUtils.isEmpty(binding.etAccountNo.getText().toString())) {
                         Toast.makeText(PayTvActivity.this, "Please enter account number.", Toast.LENGTH_SHORT).show();
                     } else {
@@ -201,7 +204,7 @@ public class PayTvActivity extends AppCompatActivity implements IParser<WSRespon
         wsUtils.WSRequest(this, params, null, WSUtils.REQ_VIEW_BILL, this);
     }
 
-    private void requestForPaymentWs(String type, String amount, String taxAmount) {
+    private void requestForPaymentWs(String amount, String taxAmount) {
         LoadingUtils.getInstance(PayTvActivity.this).showLoading();
         WSFactory wsFactory = new WSFactory();
         WSUtils wsUtils = wsFactory.getWsUtils(WSFactory.WSType.WS_PAYMENT);
@@ -210,10 +213,11 @@ public class PayTvActivity extends AppCompatActivity implements IParser<WSRespon
         params.put("paytvoperator", binding.spinner.getSelectedItem().toString());
         params.put(Constant.ACCOUNT_NUMBER, binding.etAccountNo.getText().toString());
         params.put("data_reference_number", referenceNumber);
+        params.put(Constant.MOBILE_NUMBER, binding.etNumber.getText().toString());
         params.put(Constant.AMOUNT, amount);
         params.put(Constant.DEVICE, "mobile");
         params.put(Constant.USER_ID, UserDetail.getInstance(this).getUserId());
-        params.put(Constant.PAYMENT_TYPE, type);
+        params.put(Constant.PAYMENT_TYPE, paymentType);
         params.put(Constant.USER_EMAIL, UserDetail.getInstance(this).getUserName());
         params.put("tax_amount", taxAmount);
         wsUtils.WSRequest(this, params, null, WSUtils.REQ_PAYMENT, this);
@@ -248,32 +252,45 @@ public class PayTvActivity extends AppCompatActivity implements IParser<WSRespon
     }
 
     private void parseViewBillWs(ViewBillResponse response) {
-        if (response != null) {
-            binding.tvBill.setText(Html.fromHtml(response.getDataCaption()));
-            referenceNumber = response.getDataReferenceNumber();
+        try {
+            if (response != null ) {
+                if (response.getResponseCode().equalsIgnoreCase("0")) {
+                    binding.tvBill.setText(Html.fromHtml(response.getDataCaption()));
+                    referenceNumber = response.getDataReferenceNumber();
 //            binding.tvBill.setText(Html.fromHtml(response.getDataCaption(), Html.FROM_HTML_MODE_COMPACT));
 
-            binding.tvViewBill.setVisibility(View.GONE);
-            binding.llView.setVisibility(View.VISIBLE);
+                    binding.tvViewBill.setVisibility(View.GONE);
+                    binding.llView.setVisibility(View.VISIBLE);
+                } else {
+                    Toast.makeText(this, "Please enter valid account number.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
     private void parsePaymentWs(PaymentResponse response) {
-        if (response != null && response.getStatus()==200) {
+        if (response != null && response.getStatus() == 200) {
             dialog.dismiss();
-            if (!isManual) {
+            if (paymentType.equalsIgnoreCase("cards")) {
                 String url = response.getUrl();
                 Intent intent = new Intent(PayTvActivity.this, WebActivity.class);
                 intent.putExtra("url", url);
                 startActivity(intent);
-            } else {
+            } else if (paymentType.equalsIgnoreCase("manual")) {
                 Intent intent = new Intent(PayTvActivity.this, ManualPaymentActivity.class);
                 intent.putExtra("accountNo", response.getAccountNumber());
-                intent.putExtra("orderId", response.getOrderId()+ "");
+                intent.putExtra("orderId", response.getOrderId() + "");
                 intent.putExtra("label", response.getLabel());
                 startActivity(intent);
+            } else if (paymentType.equalsIgnoreCase("mtn_money")) {
+                Intent intent = new Intent(PayTvActivity.this, MTNPaymentActivity.class);
+                intent.putExtra("orderId", response.getOrderId() + "");
+                intent.putExtra("mobile", binding.etNumber.getText().toString());
+                startActivity(intent);
             }
-        }else {
+        } else {
             Toast.makeText(this, response != null ? response.getMessage() : "", Toast.LENGTH_SHORT).show();
         }
     }
@@ -310,12 +327,19 @@ public class PayTvActivity extends AppCompatActivity implements IParser<WSRespon
         CustomTextView tvOperator = dialog.findViewById(R.id.tvOperator);
         CustomTextView tvAmount = dialog.findViewById(R.id.tvAmount);
         CustomTextView tvTax = dialog.findViewById(R.id.tvTax);
+        ImageView ivBack = dialog.findViewById(R.id.ivBack);
 
+        ivBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
         CustomTextView tvContinue = dialog.findViewById(R.id.tvContinue);
 
         tvName.setText(UserDetail.getInstance(this).getFullname());
         tvEmail.setText(UserDetail.getInstance(this).getUserName());
-        tvMoNumber.setText(UserDetail.getInstance(this).getMobile());
+        tvMoNumber.setText(binding.etNumber.getText().toString());
         tvOperator.setText(binding.spinner.getSelectedItem().toString());
 
         tvAmount.setText(amount);
@@ -324,11 +348,8 @@ public class PayTvActivity extends AppCompatActivity implements IParser<WSRespon
         tvContinue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (isManual) {
-                    requestForPaymentWs("manual", amount, tax);
-                } else {
-                    requestForPaymentWs("", amount, tax);
-                }
+                requestForPaymentWs(amount, tax);
+                dialog.dismiss();
             }
         });
 

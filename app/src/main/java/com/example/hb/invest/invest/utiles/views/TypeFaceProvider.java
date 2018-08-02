@@ -6,7 +6,6 @@ import android.graphics.Typeface;
 import java.util.Hashtable;
 
 /**
- * Created by hb on 22/12/15.
  */
 public class TypeFaceProvider {
     private static Hashtable<String, Typeface> sTypeFaces = new Hashtable<String, Typeface>(12);

@@ -10,7 +10,6 @@ import retrofit2.Call;
 import retrofit2.Callback;
 
 /**
- * Created by hb on 10/6/16.
  */
 public class WSOrderList extends WSUtils {
     @Override

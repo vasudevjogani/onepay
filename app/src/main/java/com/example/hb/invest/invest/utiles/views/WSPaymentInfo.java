@@ -1,6 +1,7 @@
 package com.example.hb.invest.invest.utiles.views;
 
-import com.example.hb.invest.invest.models.StaticPageResponse;
+import com.example.hb.invest.invest.models.PaymentInfoResponse;
+import com.example.hb.invest.invest.models.PriceWithTax;
 
 import java.util.Map;
 
@@ -10,10 +11,10 @@ import retrofit2.Callback;
 
 /**
  */
-public class WSPolicy extends WSUtils {
+public class WSPaymentInfo extends WSUtils {
     @Override
     protected void enqueueWebService(Map<String, String> params, Map<String, RequestBody> fileUploadParams, Callback callback) {
-        Call<StaticPageResponse> staticPageResponseCall = webServices.requestPrivacy(params);
-        staticPageResponseCall.enqueue(callback);
+        Call<PaymentInfoResponse> infoResponseCall = webServices.requestPaymentInfo(params);
+        infoResponseCall.enqueue(callback);
     }
 }

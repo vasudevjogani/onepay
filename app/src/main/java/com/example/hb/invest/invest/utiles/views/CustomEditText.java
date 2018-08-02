@@ -8,7 +8,6 @@ import android.widget.EditText;
 import com.example.hb.invest.R;
 
 /**
- * Created by hb on 15/10/15.
  */
 public class CustomEditText extends EditText {
     private int font;

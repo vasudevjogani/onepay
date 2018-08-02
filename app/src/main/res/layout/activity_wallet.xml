@@ -5,8 +5,183 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/app_color"
         android:orientation="vertical">
 
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary" />
+        </android.support.design.widget.AppBarLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#99000000"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:padding="@dimen/padding_10">
+
+                <com.example.hb.invest.invest.utiles.views.CustomTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Available Balance : "
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_15"
+                    app:font_type="regular" />
+
+                <com.example.hb.invest.invest.utiles.views.CustomTextView
+                    android:id="@+id/tvBalance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="$200.00"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_18" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/padding_10"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <android.support.v7.widget.CardView
+                        android:id="@+id/cardview"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/box_height"
+                        android:layout_gravity="center_horizontal"
+                        android:clickable="true"
+                        app:cardBackgroundColor="@color/app_color"
+                        app:cardCornerRadius="15dip"
+                        app:cardPreventCornerOverlap="false"
+                        app:cardUseCompatPadding="true">
+
+                        <com.makeramen.roundedimageview.RoundedImageView
+                            android:id="@+id/ivImage"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="center"
+                            android:layout_margin="@dimen/padding_8"
+                            android:src="@drawable/mobile" />
+
+                    </android.support.v7.widget.CardView>
+
+                    <com.example.hb.invest.invest.utiles.views.CustomTextView
+                        android:id="@+id/tvName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="@dimen/padding_5"
+                        android:text="Name"
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/text_15"
+                        app:font_type="regular" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/padding_10"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <android.support.v7.widget.CardView
+                        android:id="@+id/cardview"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/box_height"
+                        android:layout_gravity="center_horizontal"
+                        android:clickable="true"
+                        app:cardBackgroundColor="@color/app_color"
+                        app:cardCornerRadius="15dip"
+                        app:cardPreventCornerOverlap="false"
+                        app:cardUseCompatPadding="true">
+
+                        <com.makeramen.roundedimageview.RoundedImageView
+                            android:id="@+id/ivImage"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="center"
+                            android:layout_margin="@dimen/padding_8"
+                            android:src="@drawable/mobile" />
+
+                    </android.support.v7.widget.CardView>
+
+                    <com.example.hb.invest.invest.utiles.views.CustomTextView
+                        android:id="@+id/tvName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="@dimen/padding_5"
+                        android:text="Name"
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/text_15"
+                        app:font_type="regular" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/padding_10"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <android.support.v7.widget.CardView
+                        android:id="@+id/cardview"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/box_height"
+                        android:layout_gravity="center_horizontal"
+                        android:clickable="true"
+                        app:cardBackgroundColor="@color/app_color"
+                        app:cardCornerRadius="15dip"
+                        app:cardPreventCornerOverlap="false"
+                        app:cardUseCompatPadding="true">
+
+                        <com.makeramen.roundedimageview.RoundedImageView
+                            android:id="@+id/ivImage"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="center"
+                            android:layout_margin="@dimen/padding_8"
+                            android:src="@drawable/mobile" />
+
+                    </android.support.v7.widget.CardView>
+
+                    <com.example.hb.invest.invest.utiles.views.CustomTextView
+                        android:id="@+id/tvName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="@dimen/padding_5"
+                        android:text="Name"
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/text_15"
+                        app:font_type="regular" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
 
 
     </LinearLayout>

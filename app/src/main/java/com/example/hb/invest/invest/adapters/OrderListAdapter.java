@@ -111,6 +111,9 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.View
 
         holder.binding.tvDate.setText(order.getCreatedDate());
 
+        holder.binding.tvForeignNo.setText(order.getTransactionId());
+        holder.binding.tvPStatus.setText(order.getTransactionMessage());
+
         holder.binding.tvMoreInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

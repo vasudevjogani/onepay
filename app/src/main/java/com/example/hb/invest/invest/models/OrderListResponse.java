@@ -86,6 +86,10 @@ public class OrderListResponse implements WSResponse {
         @SerializedName("tax_amount")
         private String taxAmount;
 
+        @SerializedName("transaction_id")
+        private String transactionId;
+        @SerializedName("transaction_message")
+        private String transactionMessage;
 
         public String getType() {
             return type;
@@ -205,6 +209,22 @@ public class OrderListResponse implements WSResponse {
 
         public void setTaxAmount(String taxAmount) {
             this.taxAmount = taxAmount;
+        }
+
+        public String getTransactionId() {
+            return transactionId;
+        }
+
+        public void setTransactionId(String transactionId) {
+            this.transactionId = transactionId;
+        }
+
+        public String getTransactionMessage() {
+            return transactionMessage;
+        }
+
+        public void setTransactionMessage(String transactionMessage) {
+            this.transactionMessage = transactionMessage;
         }
     }
 }

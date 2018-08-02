@@ -1,7 +1,6 @@
 package com.example.hb.invest.invest.utiles.views;
 
 /**
- * Created by hb on 28-May-16.
  */
 public class WSFactory {
     public enum WSType {
@@ -20,7 +19,8 @@ public class WSFactory {
         WS_ORDER_LIST,
         WS_EMAIL_VERIFY,
         WS_SUCCESS,
-        WS_PRICE_WITH_TAX
+        WS_PRICE_WITH_TAX,
+        WS_PAYMENT_INFO
     }
 
 
@@ -82,6 +82,10 @@ public class WSFactory {
 
             case WS_PRICE_WITH_TAX:
                 wsUtils = new WSPriceWithTax();
+                break;
+
+            case WS_PAYMENT_INFO:
+                wsUtils = new WSPaymentInfo();
                 break;
         }
         return wsUtils;

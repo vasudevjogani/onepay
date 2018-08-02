@@ -4,6 +4,7 @@ import com.example.hb.invest.invest.models.CommonResponse;
 import com.example.hb.invest.invest.models.HomeResponse;
 import com.example.hb.invest.invest.models.LoginResponse;
 import com.example.hb.invest.invest.models.OrderListResponse;
+import com.example.hb.invest.invest.models.PaymentInfoResponse;
 import com.example.hb.invest.invest.models.PaymentResponse;
 import com.example.hb.invest.invest.models.PriceWithTax;
 import com.example.hb.invest.invest.models.RegistrationResponse;
@@ -21,7 +22,6 @@ import retrofit2.http.POST;
 import retrofit2.http.QueryMap;
 
 /**
- * Created by hb on 28-May-16.
  */
 public interface Webservice {
 
@@ -76,4 +76,7 @@ public interface Webservice {
     @FormUrlEncoded
     @POST("api/orders/price_with_tax")
     Call<PriceWithTax> requestPriceWithTax(@FieldMap Map<String, String> params);
+
+    @GET("users/getPaymentInfo")
+    Call<PaymentInfoResponse> requestPaymentInfo(@QueryMap Map<String, String> params);
 }

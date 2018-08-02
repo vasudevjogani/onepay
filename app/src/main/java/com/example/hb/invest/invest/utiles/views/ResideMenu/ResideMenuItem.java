@@ -10,12 +10,6 @@ import com.example.hb.invest.R;
 import com.example.hb.invest.invest.utiles.views.UserDetail;
 
 
-/**
- * User: special
- * Date: 13-12-10
- * Time: 下午11:05
- * Mail: specialcyci@gmail.com
- */
 public class ResideMenuItem extends LinearLayout {
 
     /**

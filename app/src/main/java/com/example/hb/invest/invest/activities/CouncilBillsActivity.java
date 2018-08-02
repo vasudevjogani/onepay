@@ -16,6 +16,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -47,7 +48,7 @@ public class CouncilBillsActivity extends AppCompatActivity implements IParser<W
     private ActionBar ab;
     private ArrayList<HomeResponse.CouncilBill> councilBillList = new ArrayList<>();
     private ArrayList<String> operatorList = new ArrayList<>();
-    private boolean isManual;
+    private String paymentType = "";
     private Dialog dialog;
 
     @Override
@@ -127,11 +128,14 @@ public class CouncilBillsActivity extends AppCompatActivity implements IParser<W
 
                     ArrayList<Menuitem> menuitems = new ArrayList<>();
                     menuitems.add(new Menuitem("Airtel Money", R.drawable.airtel_logo));
-                    menuitems.add(new Menuitem("Mtn Money", R.drawable.mtn_logo));
-                    menuitems.add(new Menuitem("Zambia Kwacha", R.drawable.zamtel_logo));
+                    menuitems.add(new Menuitem("MTN Mobile Money", R.drawable.mtn_logo));
+                    menuitems.add(new Menuitem("Zamtel Kwacha", R.drawable.zamtel_logo));
                     menuitems.add(new Menuitem("Card Payment", R.drawable.mastercard));
 
-                    if (TextUtils.isEmpty(binding.etAmount.getText().toString())) {
+                    if (TextUtils.isEmpty(binding.etNumber.getText().toString())) {
+                        Toast.makeText(CouncilBillsActivity.this, "Please enter mobile number.", Toast.LENGTH_SHORT).show();
+                        return;
+                    } else if (TextUtils.isEmpty(binding.etAmount.getText().toString())) {
                         Toast.makeText(CouncilBillsActivity.this, "Please enter amount.", Toast.LENGTH_SHORT).show();
                         return;
                     }
@@ -142,19 +146,19 @@ public class CouncilBillsActivity extends AppCompatActivity implements IParser<W
                             public void OnMenuItemClick(int position) {
                                 switch (position) {
                                     case 0:
-                                        isManual = true;
+                                        paymentType = "manual";
                                         requestForPriceTaxWs();
                                         break;
                                     case 1:
-                                        isManual = true;
+                                        paymentType = "mtn_money";
                                         requestForPriceTaxWs();
                                         break;
                                     case 2:
-                                        isManual = true;
+                                        paymentType = "manual";
                                         requestForPriceTaxWs();
                                         break;
                                     case 3:
-                                        isManual = false;
+                                        paymentType = "cards";
                                         requestForPriceTaxWs();
                                         break;
                                 }
@@ -200,7 +204,7 @@ public class CouncilBillsActivity extends AppCompatActivity implements IParser<W
         wsUtils.WSRequest(this, params, null, WSUtils.REQ_VIEW_BILL, this);
     }
 
-    private void requestForPaymentWs(String type, String amount, String taxAmount) {
+    private void requestForPaymentWs(String amount, String taxAmount) {
         LoadingUtils.getInstance(CouncilBillsActivity.this).showLoading();
         WSFactory wsFactory = new WSFactory();
         WSUtils wsUtils = wsFactory.getWsUtils(WSFactory.WSType.WS_PAYMENT);
@@ -209,8 +213,9 @@ public class CouncilBillsActivity extends AppCompatActivity implements IParser<W
         params.put(Constant.TYPE, "council_bill");
         params.put(Constant.OPERATOR, binding.spinner.getSelectedItem().toString());
         params.put(Constant.PLOT_NUMBER, binding.etPlotNo.getText().toString());
+        params.put(Constant.MOBILE_NUMBER, binding.etNumber.getText().toString());
         params.put(Constant.USER_ID, UserDetail.getInstance(this).getUserId());
-        params.put(Constant.PAYMENT_TYPE, type);
+        params.put(Constant.PAYMENT_TYPE, paymentType);
         params.put(Constant.DEVICE, "mobile");
         params.put(Constant.USER_EMAIL, UserDetail.getInstance(this).getUserName());
         params.put("tax_amount", taxAmount);
@@ -257,16 +262,21 @@ public class CouncilBillsActivity extends AppCompatActivity implements IParser<W
     private void parsePaymentWs(PaymentResponse response) {
         if (response != null && response.getStatus() == 200) {
             dialog.dismiss();
-            if (!isManual) {
+            if (paymentType.equalsIgnoreCase("cards")) {
                 String url = response.getUrl();
                 Intent intent = new Intent(CouncilBillsActivity.this, WebActivity.class);
                 intent.putExtra("url", url);
                 startActivity(intent);
-            } else {
+            } else if (paymentType.equalsIgnoreCase("manual")) {
                 Intent intent = new Intent(CouncilBillsActivity.this, ManualPaymentActivity.class);
                 intent.putExtra("accountNo", response.getAccountNumber());
                 intent.putExtra("orderId", response.getOrderId() + "");
                 intent.putExtra("label", response.getLabel());
+                startActivity(intent);
+            } else if (paymentType.equalsIgnoreCase("mtn_money")) {
+                Intent intent = new Intent(CouncilBillsActivity.this, MTNPaymentActivity.class);
+                intent.putExtra("orderId", response.getOrderId() + "");
+                intent.putExtra("mobile", binding.etNumber.getText().toString());
                 startActivity(intent);
             }
         } else {
@@ -306,12 +316,20 @@ public class CouncilBillsActivity extends AppCompatActivity implements IParser<W
         CustomTextView tvOperator = dialog.findViewById(R.id.tvOperator);
         CustomTextView tvAmount = dialog.findViewById(R.id.tvAmount);
         CustomTextView tvTax = dialog.findViewById(R.id.tvTax);
+        ImageView ivBack = dialog.findViewById(R.id.ivBack);
+
+        ivBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
 
         CustomTextView tvContinue = dialog.findViewById(R.id.tvContinue);
 
         tvName.setText(UserDetail.getInstance(this).getFullname());
         tvEmail.setText(UserDetail.getInstance(this).getUserName());
-        tvMoNumber.setText(UserDetail.getInstance(this).getMobile());
+        tvMoNumber.setText(binding.etNumber.getText().toString());
         tvOperator.setText(binding.spinner.getSelectedItem().toString());
 
         tvAmount.setText(amount);
@@ -320,15 +338,12 @@ public class CouncilBillsActivity extends AppCompatActivity implements IParser<W
         tvContinue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (isManual) {
-                    requestForPaymentWs("manual", amount, tax);
-                } else {
-                    requestForPaymentWs("", amount, tax);
-                }
+                    requestForPaymentWs(amount, tax);
                 dialog.dismiss();
             }
         });
 
         dialog.show();
     }
+
 }

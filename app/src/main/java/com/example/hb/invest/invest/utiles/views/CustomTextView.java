@@ -8,7 +8,6 @@ import android.widget.TextView;
 import com.example.hb.invest.R;
 
 /**
- * Created by hb on 15/10/15.
  */
 public class CustomTextView extends TextView {
     private int font;

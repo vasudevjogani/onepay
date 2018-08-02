@@ -49,7 +49,9 @@
                             android:background="@drawable/left_rounded"
                             android:gravity="center"
                             android:textColor="@android:color/black"
-                            android:textSize="@dimen/text_22"
+                            android:textSize="@dimen/text_18"
+                            android:singleLine="true"
+                            android:text="492"
                             app:font_type="medium" />
 
                         <LinearLayout
@@ -211,6 +213,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/padding_5"
+                                android:visibility="gone"
                                 android:orientation="vertical">
 
                                 <com.example.hb.invest.invest.utiles.views.CustomTextView

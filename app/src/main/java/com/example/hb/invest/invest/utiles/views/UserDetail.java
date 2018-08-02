@@ -8,7 +8,6 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * Created by hb on 23/3/16.
  */
 
 public class UserDetail {

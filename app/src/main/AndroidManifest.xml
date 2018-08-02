@@ -83,16 +83,37 @@
         <activity
             android:name=".invest.activities.WebActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".invest.activities.EmailVerifyActivity" />
-        <activity android:name=".invest.activities.ManualPaymentActivity" />
-        <activity android:name=".invest.activities.SucessActivity" />
-        <activity android:name=".invest.activities.BasicInfoActivity" />
-        <activity android:name=".invest.activities.AddWalletBeneficiaryActivity" />
-        <activity android:name=".invest.activities.AddUtilityBeneficiaryActivity" />
-        <activity android:name=".invest.activities.SendMoneyActivity" />
-        <activity android:name=".invest.activities.UtilityBenificiaryListActivity" />
-        <activity android:name=".invest.activities.AddWalletActivity" />
-        <activity android:name=".invest.activities.WalletActivity"></activity>
+        <activity
+            android:name=".invest.activities.EmailVerifyActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".invest.activities.ManualPaymentActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".invest.activities.SucessActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".invest.activities.BasicInfoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".invest.activities.AddWalletBeneficiaryActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".invest.activities.AddUtilityBeneficiaryActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".invest.activities.SendMoneyActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".invest.activities.UtilityBenificiaryListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".invest.activities.AddWalletActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".invest.activities.WalletActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".invest.activities.MTNPaymentActivity"></activity>
     </application>
 
 </manifest>

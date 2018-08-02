@@ -12,7 +12,6 @@ import android.view.WindowManager;
 import com.example.hb.invest.R;
 
 /**
- * Created by hb on 16/6/16.
  */
 public class LoadingUtils {
     private static LoadingUtils loadingUtils;

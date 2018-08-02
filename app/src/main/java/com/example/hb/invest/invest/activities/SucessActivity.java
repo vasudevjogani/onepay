@@ -150,7 +150,7 @@ public class SucessActivity extends AppCompatActivity implements IParser<WSRespo
                 }
 
                 binding.tvDate.setText(order.getCreatedDate());
-                binding.tvDetails.setText(Html.fromHtml(order.getConfirmResponse()));
+//                binding.tvDetails.setText(Html.fromHtml(order.getConfirmResponse()));
             }
         } else {
             Toast.makeText(this, "Invalid data.", Toast.LENGTH_SHORT).show();

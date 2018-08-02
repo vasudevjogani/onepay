@@ -22,7 +22,6 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
- * Created by hb on 28-May-16.
  */
 public abstract class WSUtils {
     private final String LOCAL_URL = "https://www.onepay.co.zm/";
@@ -42,6 +41,7 @@ public abstract class WSUtils {
     public static final int REQ_VERIFY_CODE = 110;
     public static final int REQ_SUCCESS = 111;
     public static final int REQ_PRICE_WITH_TAX = 112;
+    public static final int REQ_PAYMENT_INFO = 113;
 
     public WSUtils() {
         initRetrofit(BASE_URL);

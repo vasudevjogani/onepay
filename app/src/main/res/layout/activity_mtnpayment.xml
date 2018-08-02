@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/app_color"
+        android:orientation="vertical">
+
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary" />
+        </android.support.design.widget.AppBarLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#f4c857"
+            android:orientation="vertical">
+
+            <com.example.hb.invest.invest.utiles.views.CustomTextView
+                android:id="@+id/tvText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:padding="@dimen/padding_15"
+                android:layout_marginTop="@dimen/padding_40"
+                android:text="Please approve the transaction from your phone using your MTN Mobile Money PIN. We email you your transaction details and an SMS Confirmation on () once the transaction is completed."
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:font_type="regular" />
+
+            <com.example.hb.invest.invest.utiles.views.CustomTextView
+                android:id="@+id/tvGoto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/padding_30"
+                android:background="@drawable/rounded_yellow_btn_selector"
+                android:gravity="center"
+                android:padding="@dimen/padding_10"
+                android:text="Go To Orders"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_15"
+                app:font_type="medium" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</layout>

@@ -84,7 +84,7 @@ public class DomesticTaxesActivity extends AppCompatActivity implements IParser<
             for (HomeResponse.DomesticTax domesticTax : domesticTaxList) {
                 operatorList.add(domesticTax.getUtilityName());
             }
-            operatorList.add(0, "Select operator");
+            operatorList.add(0, "Select Tax Option");
 
             ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, operatorList);
             dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -109,7 +109,7 @@ public class DomesticTaxesActivity extends AppCompatActivity implements IParser<
             binding.tvProceed.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if (!binding.spinner.getSelectedItem().equals("Select operator")) {
+                    if (!binding.spinner.getSelectedItem().equals("Select Tax Option")) {
 //                        requestForPaymentWs();
                     }
                 }

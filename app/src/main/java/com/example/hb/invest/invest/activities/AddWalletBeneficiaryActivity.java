@@ -1,25 +1,25 @@
 package com.example.hb.invest.invest.activities;
 
 import android.databinding.DataBindingUtil;
+import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 import com.example.hb.invest.R;
-import com.example.hb.invest.databinding.ActivityAddBalanceBinding;
+import com.example.hb.invest.databinding.ActivityAddWalletBeneficiaryBinding;
 
 public class AddWalletBeneficiaryActivity extends AppCompatActivity {
 
-    ActivityAddBalanceBinding binding;
+    ActivityAddWalletBeneficiaryBinding binding;
     private Toolbar actionBarToolbar;
     private ActionBar ab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_add_balance);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_add_wallet_beneficiary);
         setupToolbar();
         initComponent();
     }

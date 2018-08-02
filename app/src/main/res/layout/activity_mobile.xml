@@ -75,7 +75,7 @@
                 android:layout_gravity="center_horizontal"
                 android:background="@drawable/input_box_s1c"
                 android:ellipsize="end"
-                android:hint="Enter your mobile number"
+                android:hint="2609xxxxxxxx"
                 android:paddingLeft="@dimen/padding_20"
                 android:inputType="phone"
                 android:textColor="@android:color/black"
@@ -195,7 +195,7 @@
             android:paddingBottom="@dimen/padding_12"
             android:background="@drawable/rounded_yellow_bg"
             android:gravity="center"
-            android:text="PAY BILL"
+            android:text="Purchase Airtime"
             android:textColor="@color/white"
             app:font_type="medium" />
     </LinearLayout>

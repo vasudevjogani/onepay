@@ -102,7 +102,7 @@ public class HomeFragment extends BaseFragment implements IParser<WSResponse> {
                     councilBillList.addAll(response.getUtilityList().getCouncilBills());
                 }
                 if (response.getUtilityList().getDomesticTax() != null && response.getUtilityList().getDomesticTax().size() > 0) {
-                    homeList.add(new Home("Domestic Taxes", R.drawable.elecricity));
+                    homeList.add(new Home("Domestic Taxes", R.drawable.tax_white));
                     domesticTaxList.addAll(response.getUtilityList().getDomesticTax());
                 }
 
