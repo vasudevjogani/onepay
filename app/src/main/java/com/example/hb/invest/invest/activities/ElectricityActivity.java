@@ -7,12 +7,15 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.example.hb.invest.R;
@@ -51,6 +54,7 @@ public class ElectricityActivity extends AppCompatActivity implements IParser<WS
     }
 
     private void initComponent() {
+
         binding.tvRecharge.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -64,9 +68,11 @@ public class ElectricityActivity extends AppCompatActivity implements IParser<WS
                     Toast.makeText(ElectricityActivity.this, "Please enter your meter number.", Toast.LENGTH_SHORT).show();
                 } else if (TextUtils.isEmpty(binding.etNumber.getText().toString())) {
                     Toast.makeText(ElectricityActivity.this, "Please enter mobile number.", Toast.LENGTH_SHORT).show();
+                } else if (binding.etNumber.length() != 12) {
+                    Toast.makeText(ElectricityActivity.this, "Mobile number should be 12 digit.", Toast.LENGTH_SHORT).show();
                 } else if (TextUtils.isEmpty(binding.etAmount.getText().toString())) {
                     Toast.makeText(ElectricityActivity.this, "Please enter amount.", Toast.LENGTH_SHORT).show();
-                }else {
+                } else {
                     ActionSheetDialog.showDialog(ElectricityActivity.this, menuitems, new OnMenuItemClickListener() {
                         @Override
                         public void OnMenuItemClick(int position) {
@@ -168,7 +174,7 @@ public class ElectricityActivity extends AppCompatActivity implements IParser<WS
     private void parseSuccessWs(PriceWithTax response) {
         if (response != null && response.getStatus() == 200) {
             PriceWithTax.AmountList amountList = response.getAmountList();
-            openTaxDialog(amountList.getAmount(), amountList.getTaxAmount());
+            openTaxDialog(amountList);
         } else {
             Toast.makeText(this, "Invalid data.", Toast.LENGTH_SHORT).show();
         }
@@ -210,7 +216,7 @@ public class ElectricityActivity extends AppCompatActivity implements IParser<WS
         Toast.makeText(ElectricityActivity.this, R.string.internet_not_available, Toast.LENGTH_SHORT).show();
     }
 
-    private void openTaxDialog(final String amount, final String tax) {
+    private void openTaxDialog(final PriceWithTax.AmountList amountList) {
         dialog = new Dialog(this, R.style.AlertDialogCustom);
         dialog.setCancelable(false);
         dialog.setCanceledOnTouchOutside(false);
@@ -232,6 +238,10 @@ public class ElectricityActivity extends AppCompatActivity implements IParser<WS
         CustomTextView tvOperator = dialog.findViewById(R.id.tvOperator);
         CustomTextView tvAmount = dialog.findViewById(R.id.tvAmount);
         CustomTextView tvTax = dialog.findViewById(R.id.tvTax);
+        CustomTextView tvDeductAmount = dialog.findViewById(R.id.tvDeductAmount);
+        LinearLayout llMeter = dialog.findViewById(R.id.llMeter);
+        CustomTextView tvMeterNumber = dialog.findViewById(R.id.tvMeterNumber);
+        llMeter.setVisibility(View.VISIBLE);
         ImageView ivBack = dialog.findViewById(R.id.ivBack);
 
         ivBack.setOnClickListener(new View.OnClickListener() {
@@ -246,15 +256,17 @@ public class ElectricityActivity extends AppCompatActivity implements IParser<WS
         tvName.setText(UserDetail.getInstance(this).getFullname());
         tvEmail.setText(UserDetail.getInstance(this).getUserName());
         tvMoNumber.setText(binding.etNumber.getText().toString());
+        tvMeterNumber.setText(binding.etMeterNo.getText().toString());
         tvOperator.setText("electricity");
 
-        tvAmount.setText(amount);
-        tvTax.setText(tax);
+        tvAmount.setText(amountList.getAmount());
+        tvTax.setText(amountList.getTaxAmount());
+        tvDeductAmount.setText(amountList.getTotalAmount());
 
         tvContinue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                    requestForPaymentWs(amount, tax);
+                requestForPaymentWs(amountList.getTotalAmount(), amountList.getTaxAmount());
                 dialog.dismiss();
             }
         });

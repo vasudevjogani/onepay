@@ -58,7 +58,7 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.View
             holder.binding.tvOrderType.setText("Council Bill");
         }
 
-        holder.binding.tvOrderId.setText(order.getOrderId());
+        holder.binding.tvOrderId.setText("Order ID : "+order.getOrderId());
 
         if (!TextUtils.isEmpty(order.getAmount())) {
             holder.binding.tvAmount.setText(order.getAmount());
@@ -106,6 +106,8 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.View
             holder.binding.tvMoreInfo.setVisibility(View.GONE);
         } else if (order.getStatus().equalsIgnoreCase("cancelled")) {
             holder.binding.tvOrderStatus.setTextColor(context.getResources().getColor(R.color.red));
+            holder.binding.tvMoreInfo.setVisibility(View.GONE);
+        } else {
             holder.binding.tvMoreInfo.setVisibility(View.GONE);
         }
 

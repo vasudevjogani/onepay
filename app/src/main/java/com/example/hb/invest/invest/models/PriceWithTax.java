@@ -46,11 +46,11 @@ public class PriceWithTax implements WSResponse {
     public class AmountList {
 
         @SerializedName("amount")
-        @Expose
         private String amount;
         @SerializedName("tax_amount")
-        @Expose
         private String taxAmount;
+        @SerializedName("total_amount")
+        private String totalAmount;
 
         public String getAmount() {
             return amount;
@@ -68,6 +68,13 @@ public class PriceWithTax implements WSResponse {
             this.taxAmount = taxAmount;
         }
 
+        public String getTotalAmount() {
+            return totalAmount;
+        }
+
+        public void setTotalAmount(String totalAmount) {
+            this.totalAmount = totalAmount;
+        }
     }
 
 }

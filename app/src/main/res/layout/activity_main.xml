@@ -28,6 +28,7 @@
             android:layout_width="wrap_content"
             android:layout_height="?attr/actionBarSize"
             android:layout_alignParentRight="true"
+            android:visibility="gone"
             android:padding="@dimen/padding_10"
             android:src="@drawable/home" />
 

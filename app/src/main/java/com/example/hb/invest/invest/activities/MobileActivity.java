@@ -8,8 +8,10 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
 import android.text.Html;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
@@ -170,6 +172,11 @@ public class MobileActivity extends AppCompatActivity implements IParser<WSRespo
                         return;
                     }
 
+                    if (binding.etNumber.length() != 12) {
+                        Toast.makeText(MobileActivity.this, "Mobile number should be 12 digit.", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+
                     if (TextUtils.isEmpty(binding.etAmount.toString())) {
                         Toast.makeText(MobileActivity.this, "Please enter amount.", Toast.LENGTH_SHORT).show();
                         return;
@@ -251,7 +258,7 @@ public class MobileActivity extends AppCompatActivity implements IParser<WSRespo
     private void parseSuccessWs(PriceWithTax response) {
         if (response != null && response.getStatus() == 200) {
             PriceWithTax.AmountList amountList = response.getAmountList();
-            openTaxDialog(amountList.getAmount(), amountList.getTaxAmount());
+            openTaxDialog(amountList);
         } else {
             Toast.makeText(this, "Invalid data.", Toast.LENGTH_SHORT).show();
         }
@@ -293,7 +300,7 @@ public class MobileActivity extends AppCompatActivity implements IParser<WSRespo
         Toast.makeText(MobileActivity.this, R.string.internet_not_available, Toast.LENGTH_SHORT).show();
     }
 
-    private void openTaxDialog(final String amount, final String tax) {
+    private void openTaxDialog(final PriceWithTax.AmountList amountList) {
         dialog = new Dialog(this, R.style.AlertDialogCustom);
         dialog.setCancelable(false);
         dialog.setCanceledOnTouchOutside(false);
@@ -315,6 +322,7 @@ public class MobileActivity extends AppCompatActivity implements IParser<WSRespo
         CustomTextView tvOperator = dialog.findViewById(R.id.tvOperator);
         CustomTextView tvAmount = dialog.findViewById(R.id.tvAmount);
         CustomTextView tvTax = dialog.findViewById(R.id.tvTax);
+        CustomTextView tvDeductAmount = dialog.findViewById(R.id.tvDeductAmount);
         ImageView ivBack = dialog.findViewById(R.id.ivBack);
 
         ivBack.setOnClickListener(new View.OnClickListener() {
@@ -331,13 +339,14 @@ public class MobileActivity extends AppCompatActivity implements IParser<WSRespo
         tvMoNumber.setText(binding.etNumber.getText().toString());
         tvOperator.setText(binding.spinner1.getSelectedItem().toString());
 
-        tvAmount.setText(amount);
-        tvTax.setText(tax);
+        tvAmount.setText(amountList.getAmount());
+        tvTax.setText(amountList.getTaxAmount());
+        tvDeductAmount.setText(amountList.getTotalAmount());
 
         tvContinue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                requestForPaymentWs(amount, tax);
+                requestForPaymentWs(amountList.getTotalAmount(), amountList.getTaxAmount());
                 dialog.dismiss();
             }
         });

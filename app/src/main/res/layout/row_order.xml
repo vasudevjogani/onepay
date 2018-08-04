@@ -26,11 +26,13 @@
 
                 <com.example.hb.invest.invest.utiles.views.CustomTextView
                     android:id="@+id/tvOrderId"
-                    android:layout_width="@dimen/padding_40"
+                    android:layout_width="wrap_content"
                     android:layout_height="@dimen/padding_50"
                     android:background="@drawable/left_rounded"
                     android:gravity="center"
-                    android:text="484"
+                    android:paddingLeft="@dimen/padding_5"
+                    android:paddingRight="@dimen/padding_5"
+                    android:text="Order ID : 484"
                     android:textColor="@android:color/black"
                     android:textSize="@dimen/text_18"
                     android:singleLine="true"

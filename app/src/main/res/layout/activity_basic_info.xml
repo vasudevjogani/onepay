@@ -87,7 +87,7 @@
                             android:id="@+id/tvName"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_weight="0.6"
+                            android:layout_weight="0.5"
                             android:singleLine="true"
                             android:textColor="@android:color/black"
                             android:textSize="@dimen/text_14"
@@ -113,7 +113,7 @@
                             android:id="@+id/tvEmail"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_weight="0.6"
+                            android:layout_weight="0.5"
                             android:singleLine="true"
                             android:textColor="@android:color/black"
                             android:textSize="@dimen/text_14"
@@ -139,7 +139,36 @@
                             android:id="@+id/tvMoNumber"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_weight="0.6"
+                            android:layout_weight="0.5"
+                            android:singleLine="true"
+                            android:textColor="@android:color/black"
+                            android:textSize="@dimen/text_14"
+                            app:font_type="light" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/llMeter"
+                        android:visibility="gone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/padding_5"
+                        android:orientation="horizontal">
+
+                        <com.example.hb.invest.invest.utiles.views.CustomTextView
+                            android:id="@+id/tvMeterKey"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.4"
+                            android:text="Meter Number : "
+                            android:textColor="@android:color/black"
+                            android:textSize="@dimen/text_14"
+                            app:font_type="medium" />
+
+                        <com.example.hb.invest.invest.utiles.views.CustomTextView
+                            android:id="@+id/tvMeterNumber"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.5"
                             android:singleLine="true"
                             android:textColor="@android:color/black"
                             android:textSize="@dimen/text_14"
@@ -165,7 +194,7 @@
                             android:id="@+id/tvOperator"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_weight="0.6"
+                            android:layout_weight="0.5"
                             android:singleLine="true"
                             android:textColor="@android:color/black"
                             android:textSize="@dimen/text_14"
@@ -182,7 +211,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="0.4"
-                            android:text="Amount : "
+                            android:text="Txn Amount : "
                             android:textColor="@android:color/black"
                             android:textSize="@dimen/text_14"
                             app:font_type="medium" />
@@ -191,8 +220,9 @@
                             android:id="@+id/tvAmount"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_weight="0.6"
+                            android:layout_weight="0.5"
                             android:singleLine="true"
+                            android:text="12.00"
                             android:textColor="@android:color/black"
                             android:textSize="@dimen/text_14"
                             app:font_type="light" />
@@ -217,7 +247,35 @@
                             android:id="@+id/tvTax"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_weight="0.6"
+                            android:layout_weight="0.5"
+                            android:text="12.46"
+                            android:singleLine="true"
+                            android:textColor="@android:color/black"
+                            android:textSize="@dimen/text_14"
+                            app:font_type="light" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/padding_5"
+                        android:orientation="horizontal">
+
+                        <com.example.hb.invest.invest.utiles.views.CustomTextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.4"
+                            android:text="Amount to Deduct : "
+                            android:textColor="@android:color/black"
+                            android:textSize="@dimen/text_14"
+                            app:font_type="medium" />
+
+                        <com.example.hb.invest.invest.utiles.views.CustomTextView
+                            android:id="@+id/tvDeductAmount"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.5"
+                            android:text="12.47"
                             android:singleLine="true"
                             android:textColor="@android:color/black"
                             android:textSize="@dimen/text_14"

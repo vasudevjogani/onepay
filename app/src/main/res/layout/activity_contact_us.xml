@@ -39,10 +39,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/padding_10"
-                android:text="ipsum road, 5th cross,
-City, State,
-689861300
-Country"
+                android:text="@string/no_11_ash_road_woodlands_lusaka_zambia"
                 android:textColor="@color/white"
                 android:textSize="@dimen/text_18"
                 app:font_type="regular"
@@ -53,7 +50,7 @@ Country"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
                 android:layout_marginTop="@dimen/padding_6"
-                android:text="Ph: +899 54565 324, +568 66 548 9321"
+                android:text="@string/phone_260_211_269483_260_955_108080"
                 android:textColor="@color/white"
                 android:textSize="@dimen/text_18"
                 app:font_type="regular"/>
@@ -74,7 +71,7 @@ Country"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
                 android:layout_marginTop="@dimen/padding_6"
-                android:text="onlinerecharge@example.com"
+                android:text="support@onepay.co.zm"
                 android:textColor="@color/white"
                 android:textSize="@dimen/text_18"
                 app:font_type="regular"/>

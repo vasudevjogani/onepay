@@ -80,7 +80,7 @@ public class FeedbackFragment extends Fragment implements IParser<WSResponse> {
         params.put(Constant.LAST_NAME, binding.etLastName.getText().toString());
         params.put(Constant.EMAIL, binding.etEmail.getText().toString());
         params.put(Constant.MOBILE_NUMBER, binding.etNumber.getText().toString());
-        params.put(Constant.DESCRIPTION, binding.etDetail.getText().toString());
+        params.put(Constant.FEEDBACK_MESSAGE, binding.etDetail.getText().toString());
         wsUtils.WSRequest(getActivity(), params, null, WSUtils.REQ_FEEDBACK, this);
     }
 
@@ -109,7 +109,7 @@ public class FeedbackFragment extends Fragment implements IParser<WSResponse> {
     @Override
     public void errorResponse(int requestCode, Throwable t) {
         LoadingUtils.getInstance(getActivity()).hideLoading();
-//        Toast.makeText(getActivity(), t.toString(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(getActivity(), t.toString(), Toast.LENGTH_SHORT).show();
     }
 
     @Override

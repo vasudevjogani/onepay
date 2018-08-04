@@ -61,6 +61,7 @@
                 android:background="@drawable/input_box_s1c"
                 android:ellipsize="end"
                 android:hint="2609xxxxxxxx"
+                android:maxLength="12"
                 android:paddingLeft="@dimen/padding_20"
                 android:inputType="phone"
                 android:textColor="@android:color/black"

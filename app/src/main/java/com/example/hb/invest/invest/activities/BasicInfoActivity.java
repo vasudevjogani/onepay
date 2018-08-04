@@ -113,6 +113,20 @@ public class BasicInfoActivity extends AppCompatActivity implements IParser<WSRe
             binding.tvAmount.setText(amountList.getAmount());
             binding.tvTax.setText(amountList.getTaxAmount());
 
+            try {
+
+                double amount = Double.parseDouble(amountList.getAmount());
+                double tax = Double.parseDouble(amountList.getTaxAmount());
+
+//                double deductAmount = amount + tax;
+                Toast.makeText(this, amount+"" , Toast.LENGTH_SHORT).show();
+
+
+//                binding.tvDeductAmount.setText(deductAmount + "");
+            } catch (Exception e) {
+                e.printStackTrace();
+                Toast.makeText(this, e.toString() , Toast.LENGTH_SHORT).show();
+            }
         } else {
             Toast.makeText(this, "Invalid data.", Toast.LENGTH_SHORT).show();
         }
